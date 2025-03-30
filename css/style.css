@@ -1,0 +1,169 @@
+@font-face{
+	src: url(../font/whitney.woff);
+	font-family: 'whitney';
+}
+@font-face{
+	src: url(../font/heebo-regular.woff);
+	font-family: 'heebo';
+}
+.hebbo{
+	font-family: 'heebo';
+}
+*{
+	font-family: 'whitney';
+}
+.login{
+	max-width: 940px;
+}
+body,html{
+	height: 100%;
+}
+body{
+	background:linear-gradient(145deg, #efefef 10% , #FFF 10%, #efefef 20%, #FFF 20%, #efefef 30% , #FFF 30%);
+	background-size: contain;
+}
+.loco{
+	margin-left: 78px;
+}
+header{
+	padding: 15px;
+}
+main{
+	max-width: 597px;
+	width: 100%;
+}
+
+h1{
+	margin: 15px 0 55px 0;
+	font-weight: 300;
+	font-size: 28px;
+}
+.form{
+	max-width: 388px;
+	width: 100%;
+}
+.form-control{
+	height: 50px;
+	font-size: 20px;
+}
+.field{
+	margin-bottom: 18px;
+}
+.mb-28{
+	margin-bottom: 18px;
+}
+.font-18{
+	font-size: 18px;
+}
+.btn-danger{
+	background: #d52b1e!important;
+	border-radius: 6px;
+	border-color: transparent!important;
+	width: 105px;
+	height: 53px;
+}
+.h-65{
+	height: 65px;
+}
+.text-danger
+{color: #d52b1e!important;}
+.mt-35{
+	margin-top: 35px;
+}
+.atencion{
+	font-size: 14px;
+	color: rgb(62, 62, 64);
+}
+.btn-outline-danger{
+	margin:10px 0;
+}
+footer{
+	max-width: 597px;
+	margin: auto;
+	font-size: 12px;
+	color: rgba(26,38,51,.5);
+}
+header{
+	height: 103px;
+}
+.h-30{
+	height: 30px;
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  display: block;
+  margin:15px 0;
+  position: relative;
+  color: #FFF;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 0;
+  background-color: #aaa;
+  border-radius: 50%;
+  animation: scale50 1s infinite ease-in-out;
+}
+.loader::before {
+  top: auto;
+  bottom: 0;
+  background-color: #FF3D00;
+  animation-delay: 0.5s;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+@keyframes scale50 {
+  0%, 100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+} 
+ 
+
+@media (max-width:676px){
+	header{
+		height: 143px;
+		
+		padding:0!important ;
+		padding-left: 35px !important;
+	}
+	.loco{
+		height: 58px;
+		margin:20px 0!important;
+	}
+	main{
+		max-width: 282px;
+	}
+	h1{
+		margin-bottom: 25px!important;
+	}
+	.form-control{
+		font-size: 20px;
+	}
+	.btn-outline-danger{
+		font-size: 12px;
+		width: 112%;
+	}
+	footer{
+		padding: 40px;
+	}
+	body{
+		background: #FFF!important;
+	}
+}
